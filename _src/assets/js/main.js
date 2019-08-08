@@ -11,13 +11,15 @@ const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83m
 
 
 //local storage
-const lsUserValue = localStorage.getItem('Searched value');
+
+
 
 //funciones
 
 function handleButtonClick () {
   const searchedValue = searchInput.value;
   const myApi = `http://api.tvmaze.com/search/shows?q=${searchedValue}`;
+
   fetch(myApi)
     .then(function(response) {
       return response.json();
@@ -26,6 +28,7 @@ function handleButtonClick () {
       resultList.innerHTML = '';
       for (let i=0; i<data.length; i++) {
         const myObject = data[i];
+
         let myResultImage;
         let myResultName = myObject.show.name;
 
@@ -37,26 +40,26 @@ function handleButtonClick () {
           myResultImage = myObject.show.image.medium;
         }
 
-        resultList.innerHTML +=
+        const liContent =
         `<li class="result__list__element">
         <img src="${myResultImage}" alt="" class="result__image">
         <h2 class="result__name">${myResultName}</h2>
         </li>`;
 
-        myResultImage.addEventListener('click', handleFavClick);
-        myResultName.addEventListener('click', handleFavClick);
+        resultList.innerHTML = resultList.innerHTML + liContent;
 
-        handleFavClick (event) {
-          myFavoriteList.innerHTML +=
-          `
-          <li class="favoriteElement">
-            <img src="${myResultImage}" alt="" class="favorite__image">
-            <h2 class="favorite__name">${myResultName}</h2>
-          </li>
-          `
-        }
+        // myResultImage.addEventListener('click', handleFavClick);
+        // myResultName.addEventListener('click', handleFavClick);
+
+        // handleFavClick () {
+        //   myFavoriteList.innerHTML += liContent;
+
+        localStorage.setItem(Result , JSON.stringify(resultList));
+        // }
       });
+
       }
+
 
 
 //listeners
