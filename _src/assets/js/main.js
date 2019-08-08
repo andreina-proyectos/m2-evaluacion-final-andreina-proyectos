@@ -11,9 +11,6 @@ const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83m
 
 
 //local storage
-
-
-
 //funciones
 
 function handleButtonClick () {
@@ -26,6 +23,7 @@ function handleButtonClick () {
     })
     .then(function(data) {
       resultList.innerHTML = '';
+
       for (let i=0; i<data.length; i++) {
         const myObject = data[i];
 
@@ -40,30 +38,16 @@ function handleButtonClick () {
           myResultImage = myObject.show.image.medium;
         }
 
-        const liContent =
+        resultList.innerHTML = resultList.innerHTML +
         `<li class="result__list__element">
-        <img src="${myResultImage}" alt="" class="result__image">
+        <img src="${myResultImage}" alt="${myResultName}" class="result__image">
         <h2 class="result__name">${myResultName}</h2>
-        </li>`;
-
-        resultList.innerHTML = resultList.innerHTML + liContent;
-
-        // myResultImage.addEventListener('click', handleFavClick);
-        // myResultName.addEventListener('click', handleFavClick);
-
-        // handleFavClick () {
-        //   myFavoriteList.innerHTML += liContent;
-
-        localStorage.setItem(Result , JSON.stringify(resultList));
-        // }
-      });
-
+        </li>` ;
       }
+    });
 
+}
 
 
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
-
-
-//searchInput.addEventListener('keyup', handleInputSearch);
