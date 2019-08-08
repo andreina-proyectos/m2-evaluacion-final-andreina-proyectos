@@ -5,26 +5,15 @@ const searchInput = document.querySelector('.search__input');
 const searchButton = document.querySelector('.search__button');
 const resultList = document.querySelector('.results__list');
 const ListElement = document.querySelector('.result__list__element');
+const myFavoriteList = document.querySelector('.favorites__list');
+
 const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83m54gAolcMA_rV6DRKCNfP0r_M_dxZ1BBVeVJ6c-StaEz07w';
 
 
 //local storage
 const lsUserValue = localStorage.getItem('Searched value');
-if (lsUserValue) {
-  searchInput.value = lsUserValue;
-}
 
 //funciones
-
-function handleInputSearch() {
-  const userValue = searchInput.value;
-  if (userValue) {
-    localStorage.setItem('Searched value', userValue);
-  }
-  else {
-    localStorage.removeItem('Searched value');
-  }
-}
 
 function handleButtonClick () {
   const searchedValue = searchInput.value;
@@ -53,11 +42,25 @@ function handleButtonClick () {
         <img src="${myResultImage}" alt="" class="result__image">
         <h2 class="result__name">${myResultName}</h2>
         </li>`;
+
+        myResultImage.addEventListener('click', handleFavClick);
+        myResultName.addEventListener('click', handleFavClick);
+
+        handleFavClick (event) {
+          myFavoriteList.innerHTML +=
+          `
+          <li class="favoriteElement">
+            <img src="${myResultImage}" alt="" class="favorite__image">
+            <h2 class="favorite__name">${myResultName}</h2>
+          </li>
+          `
+        }
+      });
       }
-    });
-}
+
 
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
 
-searchInput.addEventListener('keyup', handleInputSearch);
+
+//searchInput.addEventListener('keyup', handleInputSearch);
