@@ -9,17 +9,22 @@ const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83m
 
 
 //local storage
+const lsUserValue = localStorage.getItem('Searched value');
+if (lsUserValue) {
+  searchInput.value = lsUserValue;
+}
 
 //funciones
-// function handleInputSearch() {
-//   const userValue = searchInput.value;
-//   if (userValue) {
-//     localStorage.setItem('Searched value', userValue)
-//   }
-//   else {
-//     localStorage.removeItem('Searched value');
-//   }
-// }
+
+function handleInputSearch() {
+  const userValue = searchInput.value;
+  if (userValue) {
+    localStorage.setItem('Searched value', userValue);
+  }
+  else {
+    localStorage.removeItem('Searched value');
+  }
+}
 
 function handleButtonClick () {
   const searchedValue = searchInput.value;
@@ -55,4 +60,4 @@ function handleButtonClick () {
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
 
-//searchInput.addEventListener('keyup', handleInputSearch)
+searchInput.addEventListener('keyup', handleInputSearch);

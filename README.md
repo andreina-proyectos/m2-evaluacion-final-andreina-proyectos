@@ -1,13 +1,23 @@
 ![Adalab](_src/assets/images/logo-adalab-80px.png)
-# Adalab web starter kit
-Ahoy! Esta es nuestro Starter Kit en node/gulp para este primer contacto con el desarrollo web
-Incluye SCSS, un sistema de plantillas HTMl y un web server.
+# Evaluación Andreina Romero García
 
-## Guía de inicio rápido
-Necesitarás instalar [Node.js](https://nodejs.org/) y [Gulp](https://gulpjs.com) para trabajar con este Starter Kit, luego:
-1. Descarga o clona el repositorio
-2. Instala las dependencias locales con `$ npm install`
-3. Arranca el kit con `$ gulp`
+
+## Plan de acción
+1. Defino  la estructura de mi web
+2. Recojo los elementos en mi JS
+3. Defino mi primer listener: el del botón de search
+4. Desarrollo mi función (la que se ejecuta al pinchar search)
+5. Como se hace una búsqueda, desarrollo Fetch
+6. La Data que obtengo, es un array compuesto por objetos, por lo tanto ya sé que data la desarrollo como data[i] porque es array
+7. Elijo de mi api lo que me interesa, en este caso me interesa data[i].show.image
+y data[i].show.name
+8. De image elijo el tamaño medium
+9. Sé que hay imágenes que son null, por lo tanto creo una condocional. Si la imagen es nula, pinto en mis resultados una imagen default, pero si tengo algo ahí dentro, pinto la imagen que cojo de la api
+10. local storage: cojo el input.value y voy a meterlo en mi local storage con set item
+11. nada más cargar la página, lo primero que quiero que haga mi navegador es coger esa info guardada en local storage con get item. Si contiene "algo", entonces cogelo, si no, no hagas nada.
+12. La idea de todo esto, es que el usuario vea en su lista de favoritos una lista de imagen + titulo que yo cojo de mi local storage. Lo cojo con get item y lo pinto en mis resultados
+13. Para eso, debería ponerle un add.eventListener a cada imagen, para que al ser click, se guarde en mis favoritos. Eso debería ser otro array? y luego lo recorro para escoger los elementos
+
 
 ## Espera, ¿esto se hace siempre?
 > ### Solo una vez al principio en cada ordenador que utilicemos:
