@@ -85,8 +85,20 @@ function handlerClickFavorite() {
     src: liShowSelected.firstChild.src,
     title: liShowSelected.lastChild.innerHTML,
   }
-
   arrFavorites.push(favoriteObject);
+  printFavoriteArray ();
+}
+
+function printFavoriteArray () {
+  myFavoriteList.innerHTML = '';
+  for (let i=0; i<arrFavorites.length; i++) {
+    myFavoriteList.innerHTML +=
+    `<li data-show-id="${arrFavorites[i].id}" class="favoriteElement">
+      <img src="${arrFavorites[i].src}" alt="${arrFavorites[i].title}" class="favorite__image">
+      <h2 class="favorite__name">${arrFavorites[i].title}</h2>
+    </li>`;
+
+  }
 }
 
 
