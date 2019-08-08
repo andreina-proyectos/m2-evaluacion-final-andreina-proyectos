@@ -6,8 +6,8 @@ const searchButton = document.querySelector('.search__button');
 const resultList = document.querySelector('.results__list');
 const ListElement = document.querySelector('.result__list__element');
 const myFavoriteList = document.querySelector('.favorites__list');
-
 const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83m54gAolcMA_rV6DRKCNfP0r_M_dxZ1BBVeVJ6c-StaEz07w';
+let arrFavorites = [];
 
 
 //local storage
@@ -29,6 +29,7 @@ function handleButtonClick () {
 
         let myResultImage;
         let myResultName = myObject.show.name;
+        let myResultID = myObject.show.id;
 
         if (myObject.show.image === null) {
           myResultImage = defaultImage;
@@ -37,7 +38,7 @@ function handleButtonClick () {
           myResultImage = myObject.show.image.medium;
         }
         //ejecuto función fabricadora de lis
-        const myLiElement = createLiNewElement (myResultImage, myResultName);
+        const myLiElement = createLiNewElement (myResultImage, myResultName, myResultID);
 
         //Ahora integro li dentro de ul (result list)
         resultList.appendChild(myLiElement);
@@ -48,10 +49,11 @@ function handleButtonClick () {
 }
 
 //hago funcion que cree un elemento li a partir de los parametros src, alt y name
-function createLiNewElement (src, alt) {
+function createLiNewElement (src, alt, resultID) {
   // Ahora creo el elemento nuevo li con DOM avanzado
   const myLiElement = document.createElement('li');
   myLiElement.classList.add('result__list__element');
+  myLiElement.setAttribute('show-id', resultID);
 
   // Ahora añado el elemento img al li
   const myImageNewElement = document.createElement('img');
@@ -75,9 +77,18 @@ function createLiNewElement (src, alt) {
 }
 
 function handlerClickFavorite() {
-  event.currentTarget.classList.add('select-User-Fav');
-//const arrFavorites =
+  let liShowSelected = event.currentTarget;
+  liShowSelected.classList.add('select-User-Fav');
+  let showID = event.currentTarget.getAttribute('show-id');
+  const favoriteObject =
+  { id: showID,
+    src: liShowSelected.firstChild.src,
+    title: liShowSelected.lastChild.innerHTML,
+  }
+
+  arrFavorites.push(favoriteObject);
 }
+
 
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
