@@ -33,20 +33,22 @@ function handleButtonClick () {
         if (myObject.show.image === null) {
           myResultImage = defaultImage;
         }
-
         else {
           myResultImage = myObject.show.image.medium;
         }
         //ejecuto función fabricadora de lis
-        const myLiElement = createLiNewElement (myResultImage, myResultName, myResultName);
+        const myLiElement = createLiNewElement (myResultImage, myResultName);
+
         //Ahora integro li dentro de ul (result list)
         resultList.appendChild(myLiElement);
+
+        myLiElement.addEventListener('click', handlerClickFavorite)
       }
     });
 }
 
 //hago funcion que cree un elemento li a partir de los parametros src, alt y name
-function createLiNewElement (src, alt, name) {
+function createLiNewElement (src, alt) {
   // Ahora creo el elemento nuevo li con DOM avanzado
   const myLiElement = document.createElement('li');
   myLiElement.classList.add('result__list__element');
@@ -72,6 +74,11 @@ function createLiNewElement (src, alt, name) {
   return myLiElement;
 }
 
+function handlerClickFavorite() {
+  event.currentTarget.classList.add('select-User-Fav');
+//const arrFavorites =
+}
 
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
+
