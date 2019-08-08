@@ -38,16 +38,37 @@ function handleButtonClick () {
           myResultImage = myObject.show.image.medium;
         }
 
-        resultList.innerHTML = resultList.innerHTML +
-        `<li class="result__list__element">
-        <img src="${myResultImage}" alt="${myResultName}" class="result__image">
-        <h2 class="result__name">${myResultName}</h2>
-        </li>` ;
+        // Ahora creo el elemento nuevo li con DOM avanzado
+        const myLiElement = document.createElement('li');
+        myLiElement.classList.add('result__list__element');
+
+        // Ahora añado el elemento img al li
+        const myImageNewElement = document.createElement('img');
+        myImageNewElement.src = myResultImage;
+        myImageNewElement.alt = myResultName;
+        myImageNewElement.classList.add('result__image');
+        //Ahora integro img dentro de li
+        myLiElement.appendChild(myImageNewElement);
+        console.log(myLiElement);
+
+
+
+
+        // const myLiElementContent =
+        //   `
+        //   <img src="${myResultImage}" alt="${myResultName}" class="result__image">
+
+        //   <h2 class="result__name">${myResultName}</h2>
+        //   `;
+
+        // myLiElement.innerHTML= myLiElementContent;
+        // console.log(myLiElementContent);
+
+        // resultList.appendChild(myLiElement);
       }
     });
 
 }
-
 
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
