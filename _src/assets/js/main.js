@@ -49,22 +49,20 @@ function handleButtonClick () {
         myImageNewElement.classList.add('result__image');
         //Ahora integro img dentro de li
         myLiElement.appendChild(myImageNewElement);
-        console.log(myLiElement);
+        //Ahora integro li dentro de ul (result list)
+        resultList.appendChild(myLiElement);
 
 
+        // Ahora añado el elemento h2 que será el nombre de la serie al li
+        const myTitleNewElement = document.createElement('h2');
+        myTitleNewElement.classList.add('result__name');
+        //escribo el contenido de mi h2
+        const newTitleElementContent = document.createTextNode(myResultName);
+        //integro el contenido de h2 en el elemento h2
+        myTitleNewElement.appendChild(newTitleElementContent);
 
-
-        // const myLiElementContent =
-        //   `
-        //   <img src="${myResultImage}" alt="${myResultName}" class="result__image">
-
-        //   <h2 class="result__name">${myResultName}</h2>
-        //   `;
-
-        // myLiElement.innerHTML= myLiElementContent;
-        // console.log(myLiElementContent);
-
-        // resultList.appendChild(myLiElement);
+        // Integro h2 al li
+        myLiElement.appendChild(myTitleNewElement);
       }
     });
 
