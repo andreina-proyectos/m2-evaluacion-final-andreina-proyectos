@@ -37,36 +37,41 @@ function handleButtonClick () {
         else {
           myResultImage = myObject.show.image.medium;
         }
-
-        // Ahora creo el elemento nuevo li con DOM avanzado
-        const myLiElement = document.createElement('li');
-        myLiElement.classList.add('result__list__element');
-
-        // Ahora añado el elemento img al li
-        const myImageNewElement = document.createElement('img');
-        myImageNewElement.src = myResultImage;
-        myImageNewElement.alt = myResultName;
-        myImageNewElement.classList.add('result__image');
-        //Ahora integro img dentro de li
-        myLiElement.appendChild(myImageNewElement);
+        //ejecuto función fabricadora de lis
+        const myLiElement = createLiNewElement (myResultImage, myResultName, myResultName);
         //Ahora integro li dentro de ul (result list)
         resultList.appendChild(myLiElement);
-
-
-        // Ahora añado el elemento h2 que será el nombre de la serie al li
-        const myTitleNewElement = document.createElement('h2');
-        myTitleNewElement.classList.add('result__name');
-        //escribo el contenido de mi h2
-        const newTitleElementContent = document.createTextNode(myResultName);
-        //integro el contenido de h2 en el elemento h2
-        myTitleNewElement.appendChild(newTitleElementContent);
-
-        // Integro h2 al li
-        myLiElement.appendChild(myTitleNewElement);
       }
     });
-
 }
+
+//hago funcion que cree un elemento li a partir de los parametros src, alt y name
+function createLiNewElement (src, alt, name) {
+  // Ahora creo el elemento nuevo li con DOM avanzado
+  const myLiElement = document.createElement('li');
+  myLiElement.classList.add('result__list__element');
+
+  // Ahora añado el elemento img al li
+  const myImageNewElement = document.createElement('img');
+  myImageNewElement.src = src;
+  myImageNewElement.alt = alt;
+  myImageNewElement.classList.add('result__image');
+  //Ahora integro img dentro de li
+  myLiElement.appendChild(myImageNewElement);
+  // Ahora añado el elemento h2 que será el nombre de la serie al li
+  const myTitleNewElement = document.createElement('h2');
+  myTitleNewElement.classList.add('result__name');
+  //escribo el contenido de mi h2
+  const newTitleElementContent = document.createTextNode(alt);
+  //integro el contenido de h2 en el elemento h2
+  myTitleNewElement.appendChild(newTitleElementContent);
+
+  // Integro h2 al li
+  myLiElement.appendChild(myTitleNewElement);
+
+  return myLiElement;
+}
+
 
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
