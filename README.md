@@ -1,8 +1,23 @@
 ![Adalab](_src/assets/images/logo-adalab-80px.png)
+
+# Ejercicio de evaluación final para superar el Módulo 2 de Adalab.
+Usé HTML, CSS, SCSS y Javascript.
+Hecho con cariño por Andreina Romero🌈.
+
 # Evaluación Andreina Romero García
 
+1️⃣ Instalarte el Adalab Starter Kit 
+2️⃣ Este proyecto usa HTML, CSS, SCSS y Javascript
+3️⃣ Consiste en un buscador de series con una lista de resultados y una lista de favoritos
+4️⃣ Cada vez que recargas la página, tus favoritos aparecen por defecto, ya que se almacenan en local storage
+5️⃣ Añadí un botón de reset para borrar todos tus favoritos de la lista
+6️⃣ Si sólo quieres borrar un elemento, pincha en la ❌ sobre cada resultado de búsqueda
+7️⃣ Espero que te guste, lo siguiente a mejorar es añadir la versión móvil
 
-## Plan de acción
+Muchas gracias por llegar hasta aquí!  
+
+
+## Plan de acción realizado
 1. Defino  la estructura de mi web
 2. Recojo los elementos en mi JS
 3. Defino mi primer listener: el del botón de search
@@ -19,37 +34,15 @@ y data[i].show.name
 13. Para eso, debería ponerle un add.eventListener a cada imagen, para que al ser click, se guarde en mis favoritos. Eso debería ser otro array, y luego lo recorro para escoger los elementos
 14. Creo un objeto para poder escoger el src, el alt y el name de la imagen, teniendo en cuenta que el alt y el name coinciden
 15. Recorro el array escogiendo estos 3 datos, que serán los parámetros con los que trabaje mi función generadora de lis
-16.
+16. Una vez generados los lis, les añado un event listener para que se pongan en lista de favoritos al pincharlos
+17. Se guarda el array de favoritos en local storages
 
-## Espera, ¿esto se hace siempre?
-> ### Solo una vez al principio en cada ordenador que utilicemos:
-- Instalamos node
-- Instalamos el comando de gulp de forma global para poder usarlo desde cualquier carpeta usando `npm install --global gulp-cli`
-
-> ### Cada vez que descarguemos o clonemos un repo:
-- `npm install` para instalar los paquetes necesarios para convertir Sass a CSS, minizarlo, etc.
-
-> ### Cada vez que estemos trabajando con nuestro código:
-- Desde nuestra terminal, ejecutamos el comando `gulp` para que realice la tarea por defecto, que en el caso del `gulpfile.js` que tenemos en adalab-web-starter-kit estará pendiente de nuestros archivos Sass, html y JavaScript y los compilará, minificará y/o recargará el servidor cada vez que hagamos un cambio
-
-## Tareas de gulp incluidas
-### Inicio de un web server para desarrollo
-```
-$ gulp
-```
-Lanza un webserver con BrowserSync y varios watchers estarán pendientes de los archivos SCSS/JS/HTML, en la carpeta **public/**, para recargar el navegador cuando se necesite.
-
-### Versión lista para subir a producción
-```
-$ gulp docs
-```
-En la carpeta **docs/** genera los CSS y JS minimizados y sin sourcemaps listos para subir al repo y activar GitHub Pages en `master/docs`.
 
 
 ## Estructura del proyecto
 Nuestro **gulpfile.js** usa un JSON de configuración con las rutas de los archivos a generar/vigilar.
 
-La estructura de carpetas tiene esta pinta:
+La estructura de carpetas 📂tiene esta pinta:
 ```
 /
 `- _src
