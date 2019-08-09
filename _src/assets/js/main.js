@@ -135,10 +135,10 @@ function handleRemoveFavorite () {
     if (liShowID === arrFavorites[i].id) {
       arrFavorites.splice(i,1);
       printFavoriteArray();
+      //cuando ejecuto esta funcion, se deberia quitar el elemento tambien de local storage, entonces envío el array actualizado a esta funcionalidad de poder eliminar un fav
+      localStorage.setItem('user-favorites-shows', JSON.stringify(arrFavorites));
     }
   }
-
-
 }
 
 function handleResetButton () {
