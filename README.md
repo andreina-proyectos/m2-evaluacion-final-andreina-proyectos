@@ -16,8 +16,10 @@ y data[i].show.name
 10. local storage: cojo el input.value y voy a meterlo en mi local storage con set item
 11. nada más cargar la página, lo primero que quiero que haga mi navegador es coger esa info guardada en local storage con get item. Si contiene "algo", entonces cogelo, si no, no hagas nada.
 12. La idea de todo esto, es que el usuario vea en su lista de favoritos una lista de imagen + titulo que yo cojo de mi local storage. Lo cojo con get item y lo pinto en mis resultados
-13. Para eso, debería ponerle un add.eventListener a cada imagen, para que al ser click, se guarde en mis favoritos. Eso debería ser otro array? y luego lo recorro para escoger los elementos
-
+13. Para eso, debería ponerle un add.eventListener a cada imagen, para que al ser click, se guarde en mis favoritos. Eso debería ser otro array, y luego lo recorro para escoger los elementos
+14. Creo un objeto para poder escoger el src, el alt y el name de la imagen, teniendo en cuenta que el alt y el name coinciden
+15. Recorro el array escogiendo estos 3 datos, que serán los parámetros con los que trabaje mi función generadora de lis
+16.
 
 ## Espera, ¿esto se hace siempre?
 > ### Solo una vez al principio en cada ordenador que utilicemos:

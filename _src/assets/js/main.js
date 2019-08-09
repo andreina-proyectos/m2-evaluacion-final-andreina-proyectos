@@ -4,11 +4,9 @@
 const searchInput = document.querySelector('.search__input');
 const searchButton = document.querySelector('.search__button');
 const resultList = document.querySelector('.results__list');
-const ListElement = document.querySelector('.result__list__element');
 const myFavoriteList = document.querySelector('.favorites__list');
 const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83m54gAolcMA_rV6DRKCNfP0r_M_dxZ1BBVeVJ6c-StaEz07w';
 let arrFavorites = [];
-
 
 //local storage
 //funciones
@@ -40,9 +38,8 @@ function handleButtonClick () {
         //ejecuto función fabricadora de lis
         const myLiElement = createLiNewElement (myResultImage, myResultName, myResultID);
 
-        //Ahora integro li dentro de ul (result list)
+        //Ahora integro li dentro de ul y hago que se pueda clickar (result list)
         resultList.appendChild(myLiElement);
-
         myLiElement.addEventListener('click', handlerClickFavorite)
       }
     });
@@ -84,9 +81,25 @@ function handlerClickFavorite() {
   { id: showID,
     src: liShowSelected.firstChild.src,
     title: liShowSelected.lastChild.innerHTML,
+  };
+
+  //ejecucion:cuando user clickea en un li, solo se hará push en el array si ese li no es favorito, y vuelvo a pintar
+  const isFavorite = showFavExist(showID);
+  if(!isFavorite) {
+    arrFavorites.push(favoriteObject);
+    printFavoriteArray ();
   }
-  arrFavorites.push(favoriteObject);
-  printFavoriteArray ();
+}
+
+// declaracion: si mi lista contiene un id igual, entonces existe y eso es true-->voy a suponer que apriori no lo tiene
+function showFavExist (showID) {
+  let exist = false;
+  for (let i=0; i<arrFavorites.length; i++) {
+    if (arrFavorites[i].id.includes(showID)) {
+      exist = true;
+    }
+  }
+  return exist;
 }
 
 function printFavoriteArray () {
@@ -97,11 +110,10 @@ function printFavoriteArray () {
       <img src="${arrFavorites[i].src}" alt="${arrFavorites[i].title}" class="favorite__image">
       <h2 class="favorite__name">${arrFavorites[i].title}</h2>
     </li>`;
-
   }
 }
 
-
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
+
 
