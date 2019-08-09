@@ -115,10 +115,30 @@ function printFavoriteArray () {
   for (let i=0; i<arrFavorites.length; i++) {
     myFavoriteList.innerHTML +=
     `<li data-show-id="${arrFavorites[i].id}" class="favoriteElement">
-      <img src="${arrFavorites[i].src}" alt="${arrFavorites[i].title}" class="favorite__image">
-      <h2 class="favorite__name">${arrFavorites[i].title}</h2>
+        <button class="remove-fav-element">❌</button>
+        <img src="${arrFavorites[i].src}" alt="${arrFavorites[i].title}" class="favorite__image">
+        <h2 class="favorite__name">${arrFavorites[i].title}</h2>
     </li>`;
   }
+  //cogeré todos los botones X para ponerles listener
+  const allRemoveButton = document.querySelectorAll('.remove-fav-element');
+  for (let i=0; i<arrFavorites.length; i++) {
+    allRemoveButton[i].addEventListener('click', handleRemoveFavorite);
+  }
+}
+
+function handleRemoveFavorite () {
+  const favElementToRemove = event.currentTarget;
+  const liShowID = favElementToRemove.parentElement.getAttribute('data-show-id');
+  console.log(liShowID);
+  for (let i=0; i<arrFavorites.length; i++) {
+    if (liShowID === arrFavorites[i].id) {
+      arrFavorites.splice(i,1);
+      printFavoriteArray();
+    }
+  }
+
+
 }
 
 function handleResetButton () {
