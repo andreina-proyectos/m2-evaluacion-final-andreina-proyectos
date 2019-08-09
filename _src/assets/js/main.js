@@ -3,6 +3,7 @@
 //constantes y variables
 const searchInput = document.querySelector('.search__input');
 const searchButton = document.querySelector('.search__button');
+const resetButton = document.querySelector ('.reset__button');
 const resultList = document.querySelector('.results__list');
 const myFavoriteList = document.querySelector('.favorites__list');
 const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83m54gAolcMA_rV6DRKCNfP0r_M_dxZ1BBVeVJ6c-StaEz07w';
@@ -120,7 +121,11 @@ function printFavoriteArray () {
   }
 }
 
+function handleResetButton () {
+  arrFavorites = [];
+  printFavoriteArray();
+  localStorage.removeItem('user-favorites-shows');
+}
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
-
-
+resetButton.addEventListener('click', handleResetButton);
