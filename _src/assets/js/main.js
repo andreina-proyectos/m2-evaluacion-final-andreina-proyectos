@@ -9,6 +9,12 @@ const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83m
 let arrFavorites = [];
 
 //local storage
+const lsUserFavoriteShow = localStorage.getItem('user-favorites-shows');
+if (lsUserFavoriteShow) {
+  arrFavorites = JSON.parse(lsUserFavoriteShow);
+  printFavoriteArray();
+}
+
 //funciones
 
 function handleButtonClick () {
@@ -88,6 +94,7 @@ function handlerClickFavorite() {
   if(!isFavorite) {
     arrFavorites.push(favoriteObject);
     printFavoriteArray ();
+    localStorage.setItem('user-favorites-shows', JSON.stringify(arrFavorites));
   }
 }
 
