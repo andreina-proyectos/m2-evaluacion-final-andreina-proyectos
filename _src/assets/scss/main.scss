@@ -44,8 +44,7 @@ body {
 }
 
 .section__favorites {
-  width: 30%;
-  font-size: 15px;
+  font-size: 13px;
   padding: 10px;
   text-align: center;
 }
@@ -60,7 +59,7 @@ body {
 }
 
 .search__input {
-  width: 300px;
+  width: 220px;
   height: 25px;
   text-align: left;
   margin-right: 30px;
@@ -95,7 +94,7 @@ body {
 }
 
 .favorites__title {
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -142,4 +141,108 @@ text-align:right;
   align-self: center;
 }
 
-/*.favorite__image */
+//media query mobile ****************************************
+
+@media all and (min-width: 320px) and (max-width: 600px) {
+  .body {
+    width: 100vw;
+  }
+  .page__header {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .section__results {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .resultados{
+    font-size: 18px;
+  }
+
+  .section__favorites {
+    width: 40%;
+    font-size: 10px;
+    padding: 5px;
+  }
+  .button {
+    width: 80px;
+    height: 25px;
+    font-size: 13px;
+    margin:5px;
+  }
+
+  .search__input {
+    width: 170px;
+    height: 25px;
+    margin-right: 10px;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .search__input::placeholder {
+    font-size: 15px;
+  }
+
+  .results__list {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-size: 13px;
+  }
+
+  .favorites__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    text-align: center;
+    list-style: none;
+  }
+
+  .favorites__title {
+    font-size: 15px;
+  }
+
+  .favoriteElement{
+    max-width: 170px;
+    min-height: 200px;
+    padding-left: 3px;
+  }
+
+  .result__list__element {
+    margin: 1px;
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 180px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .result__image {
+    min-height: 130px;
+    min-width: 100px;
+    max-height: 130px;
+    max-width: 100px;
+  }
+
+  .search__button {
+    width: 100px;
+    font-size: 13px;
+  }
+
+  .favorite__image {
+    min-height: 150px;
+    min-width: 107px;
+    max-height: 150px;
+    max-width: 107px;
+  }
+
+}
