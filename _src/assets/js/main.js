@@ -112,7 +112,7 @@ function printFavoriteArray () {
     `<li data-show-id="${arrFavorites[i].id}" class="favoriteElement">
         <button class="remove-fav-element">❌</button>
         <img src="${arrFavorites[i].src}" alt="${arrFavorites[i].title}" class="favorite__image">
-        <h2 class="favorite__name">${arrFavorites[i].title}</h2>
+        <h3 class="favorite__name">${arrFavorites[i].title}</h3>
     </li>`;
   }
 

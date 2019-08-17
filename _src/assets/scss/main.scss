@@ -152,6 +152,12 @@ text-align:right;
     font-size: 20px;
   }
 
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   .section__results {
     width: 70%;
     display: flex;
@@ -165,7 +171,8 @@ text-align:right;
   .section__favorites {
     width: 30%;
     font-size: 10px;
-    padding: 5px;
+    max-width: 130px;
+    padding: 0;
   }
   .button {
     width: 80px;
@@ -202,14 +209,18 @@ text-align:right;
     max-width: 100%;
     text-align: center;
     list-style: none;
+    max-width: 130px;
+    min-width: 130px;
   }
 
   .favorites__title {
-    font-size: 15px;
+    font-size: 13px;
+    padding: 0;
   }
 
   .favoriteElement{
-    max-width: 170px;
+    max-width: 130px;
+    min-width: 130px;
     min-height: 200px;
     padding-left: 3px;
   }
