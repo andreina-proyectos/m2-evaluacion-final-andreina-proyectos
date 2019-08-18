@@ -7,11 +7,17 @@ Hecho con cariño por Andreina Romero🌈.
 # Evaluación Andreina Romero García
 
 1️⃣ Instalarte el Adalab Starter Kit 
+
 2️⃣ Este proyecto usa HTML, CSS, SCSS y Javascript
+
 3️⃣ Consiste en un buscador de series con una lista de resultados y una lista de favoritos
+
 4️⃣ Cada vez que recargas la página, tus favoritos aparecen por defecto, ya que se almacenan en local storage
+
 5️⃣ Añadí un botón de reset para borrar todos tus favoritos de la lista
+
 6️⃣ Si sólo quieres borrar un elemento, pincha en la ❌ sobre cada resultado de búsqueda
+
 7️⃣ Espero que te guste, lo siguiente a mejorar es añadir la versión móvil
 
 Muchas gracias por llegar hasta aquí!  
