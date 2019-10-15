@@ -71,7 +71,6 @@ function createLiNewElement (src, alt, resultID) {
   return myLiElement;
 }
 
-
 function handlerClickFavorite() {
   let liShowSelected = event.currentTarget;
   liShowSelected.classList.add('select-User-Fav');
@@ -82,7 +81,6 @@ function handlerClickFavorite() {
     title: liShowSelected.lastChild.innerHTML,
   };
 
-  //Sólo se hará push en el array si ese li no es favorito
   const isFavorite = showFavExist(showID);
   if(!isFavorite) {
     arrFavorites.push(favoriteObject);
@@ -91,8 +89,6 @@ function handlerClickFavorite() {
   }
 }
 
-
-// Compruebo si mi lista contiene el id que paso por parámetro (supondremos que apriori no lo tiene)
 function showFavExist (showID) {
   let exist = false;
   for (let i=0; i<arrFavorites.length; i++) {
@@ -103,16 +99,15 @@ function showFavExist (showID) {
   return exist;
 }
 
-
 function printFavoriteArray () {
   myFavoriteList.innerHTML = '';
 
   for (let i=0; i<arrFavorites.length; i++) {
     myFavoriteList.innerHTML +=
     `<li data-show-id="${arrFavorites[i].id}" class="favoriteElement">
-        <button class="remove-fav-element">❌</button>
-        <img src="${arrFavorites[i].src}" alt="${arrFavorites[i].title}" class="favorite__image">
-        <h3 class="favorite__name">${arrFavorites[i].title}</h3>
+      <button class="remove-fav-element">❌</button>
+      <img src="${arrFavorites[i].src}" alt="${arrFavorites[i].title}" class="favorite__image">
+      <h3 class="favorite__name">${arrFavorites[i].title}</h3>
     </li>`;
   }
 
@@ -121,7 +116,6 @@ function printFavoriteArray () {
     allRemoveButton[i].addEventListener('click', handleRemoveFavorite);
   }
 }
-
 
 function handleRemoveFavorite () {
   const favElementToRemove = event.currentTarget;
@@ -135,13 +129,11 @@ function handleRemoveFavorite () {
   }
 }
 
-
 function handleResetButton () {
   arrFavorites = [];
   printFavoriteArray();
   localStorage.removeItem('user-favorites-shows');
 }
-
 
 //listeners
 searchButton.addEventListener('click', handleButtonClick);
